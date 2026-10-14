@@ -1,0 +1,28 @@
+{
+  "name": "shiftsprig",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Consent-first volunteer shift schedules inside Discord",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "biome check .",
+    "test": "node --test dist/test/plan.test.js dist/test/store.test.js dist/test/handler.test.js dist/test/bridge.test.js dist/test/smoke.test.js",
+    "check": "npm run lint && npm run build && npm test && node scripts/check-supply.mjs",
+    "setup": "node scripts/setup.mjs",
+    "start": "node scripts/launch.mjs start",
+    "register": "node scripts/launch.mjs register"
+  },
+  "dependencies": {
+    "discord.js": "14.27.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}
